@@ -17,7 +17,7 @@ Just a simple count up.
 const { LsCountup, LsCountupOptions, LsCountupSufixes } = require('ls-countup')
 
 // Target date to be the reference for the countup
-const targetDate = new Date(/* MUST BE A FOWARD DATE */)
+const targetDate = new Date(/* MUST BE A BACKWARD DATE */)
 
 // Event dispatched right after the countup starts
 const onStart = ({ days, hours, minutes, seconds }) => { /* Do whatever you want... */ }

@@ -1,6 +1,6 @@
 {
   "name": "ls-countup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just a simple count up",
   "main": "./dist/node/index",
   "types": "./dist/node/index.d.ts",
