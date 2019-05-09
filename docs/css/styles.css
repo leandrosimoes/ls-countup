@@ -70,20 +70,24 @@ h1 {
     opacity: .1;
 }
 
-.countup-item.days {
+.countup-item.years {
     animation-delay: 1s;
 }
 
-.countup-item.hours {
+.countup-item.days {
     animation-delay: 1.5s;
 }
 
-.countup-item.minutes {
+.countup-item.hours {
     animation-delay: 2s;
 }
 
-.countup-item.seconds {
+.countup-item.minutes {
     animation-delay: 2.5s;
+}
+
+.countup-item.seconds {
+    animation-delay: 3s;
 }
 
 .countup-item.days::after {

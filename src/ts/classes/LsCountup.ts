@@ -28,10 +28,24 @@ export default class LsCountup {
         if (targetDate >= new Date()) throw new Error("The target date must be a backward date")
     }
 
+    private isLeapYear(year:number) {
+      return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+    }
+
     private doTick(callback: Function | undefined) {
-        let current_date = new Date().getTime()
-        let seconds_left = (current_date - this.targetDate.getTime()) / 1000
-        let days: any, hours: any, minutes: any, seconds: any
+        let current_date = new Date()
+        let current_year = current_date.getFullYear()
+        let seconds_left = (current_date.getTime() - this.targetDate.getTime()) / 1000
+        let years: any, days: any, hours: any, minutes: any, seconds: any
+
+        years = Math.floor(seconds_left / 31536000)
+        debugger
+
+        if (years > 0) {
+            for (let i = 1; i <= years; i++) {
+                seconds_left -= this.isLeapYear(current_year - i) ? 31622400 : 31536000
+            }
+        }
 
         days = Math.floor(seconds_left / 86400)
         seconds_left -= days * 86400
@@ -44,12 +58,13 @@ export default class LsCountup {
 
         seconds = Math.floor(seconds_left % 60)
 
+        years = parseInt((years > 0 ? (years > 9 ? years : `0${years}`) : '00')).toString() + this.sufixes.years
         days = parseInt((days > 0 ? (days > 9 ? days : `0${days}`) : '00')).toString() + this.sufixes.days
         hours = parseInt((hours > 0 ? (hours > 9 ? hours : `0${hours}`) : '00')).toString() + this.sufixes.hours
         minutes = parseInt((minutes > 0 ? (minutes > 9 ? minutes : `0${minutes}`) : '00')).toString() + this.sufixes.minutes
         seconds = parseInt((seconds > 0 ? (seconds > 9 ? seconds : `0${seconds}`) : '00')).toString() + this.sufixes.seconds
 
-        this.CURRENT_TIME = new LsCountupTick({ days, hours, minutes, seconds })
+        this.CURRENT_TIME = new LsCountupTick({ years, days, hours, minutes, seconds })
 
         if (typeof callback === 'function') callback(this.CURRENT_TIME)
     }

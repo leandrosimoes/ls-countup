@@ -11,6 +11,7 @@ export default class LsCountup {
     protected CURRENT_TIME: LsCountupTick;
     constructor(options: LsCountupOptions);
     private validateTargetDate;
+    private isLeapYear;
     private doTick;
     stop(): void;
     start(): void;
