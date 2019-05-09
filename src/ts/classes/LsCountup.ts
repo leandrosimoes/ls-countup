@@ -39,12 +39,9 @@ export default class LsCountup {
         let years: any, days: any, hours: any, minutes: any, seconds: any
 
         years = Math.floor(seconds_left / 31536000)
-        debugger
 
-        if (years > 0) {
-            for (let i = 1; i <= years; i++) {
-                seconds_left -= this.isLeapYear(current_year - i) ? 31622400 : 31536000
-            }
+        for (let i = 1; i <= years; i++) {
+            seconds_left -= this.isLeapYear(current_year - i) ? 31622400 : 31536000
         }
 
         days = Math.floor(seconds_left / 86400)
@@ -58,11 +55,11 @@ export default class LsCountup {
 
         seconds = Math.floor(seconds_left % 60)
 
-        years = parseInt((years > 0 ? (years > 9 ? years : `0${years}`) : '00')).toString() + this.sufixes.years
-        days = parseInt((days > 0 ? (days > 9 ? days : `0${days}`) : '00')).toString() + this.sufixes.days
-        hours = parseInt((hours > 0 ? (hours > 9 ? hours : `0${hours}`) : '00')).toString() + this.sufixes.hours
-        minutes = parseInt((minutes > 0 ? (minutes > 9 ? minutes : `0${minutes}`) : '00')).toString() + this.sufixes.minutes
-        seconds = parseInt((seconds > 0 ? (seconds > 9 ? seconds : `0${seconds}`) : '00')).toString() + this.sufixes.seconds
+        years = `${(years > 9 ? years : `0${years}`)}${this.sufixes.years}`
+        days = `${(days > 9 ? days : `0${days}`)}${this.sufixes.days}`
+        hours = `${(hours > 9 ? hours : `0${hours}`)}${this.sufixes.hours}`
+        minutes = `${(minutes > 9 ? minutes : `0${minutes}`)}${this.sufixes.minutes}`
+        seconds = `${(seconds > 9 ? seconds : `0${seconds}`)}${this.sufixes.seconds}`
 
         this.CURRENT_TIME = new LsCountupTick({ years, days, hours, minutes, seconds })
 
