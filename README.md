@@ -3,9 +3,7 @@
 Just a simple count up.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/61f9b6709d374b1daaf61b1cd0da7b98)](https://app.codacy.com/app/leandrosimoes/ls-countup?utm_source=github.com&utm_medium=referral&utm_content=leandrosimoes/ls-countup&utm_campaign=Badge_Grade_Dashboard)
-[![Build Status](https://travis-ci.org/leandrosimoes/ls-countup.svg?branch=master)](https://travis-ci.org/leandrosimoes/ls-countup) 
 [![npm version](https://badge.fury.io/js/ls-countup.svg)](https://badge.fury.io/js/ls-countup) 
-[![CircleCI](https://circleci.com/gh/leandrosimoes/ls-countup.svg?style=svg)](https://circleci.com/gh/leandrosimoes/ls-countup)
 
 ### Instalation
 
