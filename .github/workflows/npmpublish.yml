@@ -41,6 +41,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@leandrosimoes'
       - run: npm ci
+      - run: npm config set registry https://npm.pkg.github.com/
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
