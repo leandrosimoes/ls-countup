@@ -4,6 +4,8 @@ Just a simple count up.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/61f9b6709d374b1daaf61b1cd0da7b98)](https://app.codacy.com/app/leandrosimoes/ls-countup?utm_source=github.com&utm_medium=referral&utm_content=leandrosimoes/ls-countup&utm_campaign=Badge_Grade_Dashboard)
 [![npm version](https://badge.fury.io/js/ls-countup.svg)](https://badge.fury.io/js/ls-countup) 
+![Node CI](https://github.com/leandrosimoes/ls-countup/workflows/Node%20CI/badge.svg)
+![Node.js Package](https://github.com/leandrosimoes/ls-countup/workflows/Node%2Ejs%20Package/badge.svg)
 
 ### Instalation
 
