@@ -5,7 +5,13 @@ export default class LsCountupSufixes {
     minutes: string
     seconds: string
 
-    constructor({ years ='y', days = 'd', hours = 'h', minutes = 'm', seconds = 's' }) {
+    constructor({
+        years = 'y',
+        days = 'd',
+        hours = 'h',
+        minutes = 'm',
+        seconds = 's',
+    }) {
         this.years = years
         this.days = days
         this.hours = hours

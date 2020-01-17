@@ -1,4 +1,4 @@
-import LsCountupSufixes from "./LsCountupSufixes"
+import LsCountupSufixes from './LsCountupSufixes'
 
 export default class LsCountupOptions {
     targetDate: Date
@@ -9,17 +9,15 @@ export default class LsCountupOptions {
 
     constructor({
         targetDate = new Date(),
-        onStart = (() => { }),
-        onStop = (() => { }),
-        onTick = (() => { }),
-        sufixes = new LsCountupSufixes({})
+        onStart = () => {},
+        onStop = () => {},
+        onTick = () => {},
+        sufixes = new LsCountupSufixes({}),
     }: any = {}) {
-
         this.targetDate = targetDate
         this.onStart = onStart
         this.onStop = onStop
         this.onTick = onTick
         this.sufixes = sufixes
-
     }
 }

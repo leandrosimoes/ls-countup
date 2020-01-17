@@ -1,16 +1,21 @@
-import "jasmine";
-import { LsCountup, LsCountupOptions, LsCountupSufixes, LsCountupTick } from '../src/ts/index'
+import 'jasmine'
+import {
+    LsCountup,
+    LsCountupOptions,
+    LsCountupSufixes,
+    LsCountupTick,
+} from '../src/ts/index'
 
 describe('All Validations', () => {
-    let _currentYear: number;
+    let _currentYear: number
 
     beforeAll(() => {
-        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10 * 1000;
+        jasmine.DEFAULT_TIMEOUT_INTERVAL = 10 * 1000
         _currentYear = new Date().getFullYear()
     })
 
     it('Must be defined', () => {
-        const targetDate: Date = new Date(_currentYear - 1, 1, 1);
+        const targetDate: Date = new Date(_currentYear - 1, 1, 1)
         const options = new LsCountupOptions({ targetDate })
         const countup = new LsCountup(options)
 
@@ -24,7 +29,7 @@ describe('All Validations', () => {
             done()
         }
 
-        const targetDate: Date = new Date(_currentYear - 1, 1, 1);
+        const targetDate: Date = new Date(_currentYear - 1, 1, 1)
         const options = new LsCountupOptions({ targetDate, onStart })
         const countup = new LsCountup(options)
 
@@ -42,7 +47,7 @@ describe('All Validations', () => {
             times++
         }
 
-        const targetDate: Date = new Date(_currentYear - 1, 1, 1);
+        const targetDate: Date = new Date(_currentYear - 1, 1, 1)
         const options = new LsCountupOptions({ targetDate, onTick })
         const countup = new LsCountup(options)
 
@@ -55,7 +60,7 @@ describe('All Validations', () => {
             done()
         }
 
-        const targetDate: Date = new Date(_currentYear - 1, 1, 1);
+        const targetDate: Date = new Date(_currentYear - 1, 1, 1)
         const options = new LsCountupOptions({ targetDate, onStop })
         const countup = new LsCountup(options)
 
@@ -64,8 +69,8 @@ describe('All Validations', () => {
     })
 
     it('Change date', () => {
-        const targetDate: Date = new Date(_currentYear - 1, 1, 1);
-        const targetDate2: Date = new Date(_currentYear - 2, 1, 1);
+        const targetDate: Date = new Date(_currentYear - 1, 1, 1)
+        const targetDate2: Date = new Date(_currentYear - 2, 1, 1)
 
         const options = new LsCountupOptions({ targetDate })
         const countup = new LsCountup(options)
@@ -80,8 +85,8 @@ describe('All Validations', () => {
     })
 
     it('Intern validations', () => {
-        const rightDate: Date = new Date(_currentYear - 1, 1, 1);
-        const wrongTargetDate: Date = new Date(_currentYear + 1, 1, 1);
+        const rightDate: Date = new Date(_currentYear - 1, 1, 1)
+        const wrongTargetDate: Date = new Date(_currentYear + 1, 1, 1)
 
         expect(() => {
             const options = new LsCountupOptions({ wrongTargetDate })
@@ -91,13 +96,19 @@ describe('All Validations', () => {
         expect(() => {
             const options = new LsCountupOptions({ rightDate })
             const countup = new LsCountup(options)
-            countup.changeTargetDate(wrongTargetDate);
+            countup.changeTargetDate(wrongTargetDate)
         }).toThrowError('The target date must be a backward date')
     })
 
     it('Must change sufixes', done => {
-        const targetDate: Date = new Date(_currentYear - 1, 1, 1);
-        const sufixes = new LsCountupSufixes({ years: ' years', days: ' days', hours: ' hours', minutes: ' minutes', seconds: ' seconds' })
+        const targetDate: Date = new Date(_currentYear - 1, 1, 1)
+        const sufixes = new LsCountupSufixes({
+            years: ' years',
+            days: ' days',
+            hours: ' hours',
+            minutes: ' minutes',
+            seconds: ' seconds',
+        })
 
         const onTick = (tick: LsCountupTick) => {
             expect(tick.years.indexOf(sufixes.years)).toBeGreaterThan(-1)
@@ -108,7 +119,13 @@ describe('All Validations', () => {
             done()
         }
 
-        const options = new LsCountupOptions({ targetDate, onStart: undefined, onStop: undefined, onTick, sufixes })
+        const options = new LsCountupOptions({
+            targetDate,
+            onStart: undefined,
+            onStop: undefined,
+            onTick,
+            sufixes,
+        })
         const countup = new LsCountup(options)
         countup.start()
     })
